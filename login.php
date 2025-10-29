@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -11,8 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
-            echo "Login successful. Welcome, " . htmlspecialchars($user['username']) . "!";
-            // Next: Set session, redirect to dashboard
+            // session_start(); // REMOVE THIS LINE - already started at the top!
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            header("Location: dashboard.php"); // Redirect after login
+            exit();
         } else {
             echo "Invalid credentials. <a href='login.html'>Try again</a>";
         }

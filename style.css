@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: #22304a;
+}
+
+.game-header {
+  text-align: center;
+  padding: 36px 0 18px 0;
+}
+
+.game-header h1 {
+  font-size: 2.8em;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  color: #247cff;
+  margin-bottom: 0.18em;
+  text-shadow: 0 4px 12px #a6d1ff30;
+}
+
+.game-header h2 {
+  font-weight: 400;
+  color: #378de5;
+  margin-bottom: 8px;
+}
+
+.dashboard-flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 36px;
+  margin-top: 48px;
+}
+
+.dashboard-card {
+  background: #fafdff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(87, 156, 231, 0.083);
+  padding: 32px 36px;
+  width: 340px;
+  min-height: 220px;
+  text-align: center;
+  border: 2px solid #d3e3fa;
+  transition: 0.18s box-shadow, 0.18s transform;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 16px 36px rgba(36, 124, 255, 0.16);
+  border-color: #81baff;
+  transform: translateY(-4px) scale(1.016);
+}
+
+.dashboard-card h3 {
+  color: #2464b6;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.create-form input,
+.join-form input {
+  display: block;
+  margin: 16px auto 16px auto;
+  padding: 12px 18px;
+  font-size: 1.07em;
+  border: 1.7px solid #b6cfff;
+  border-radius: 14px;
+  outline: none;
+  width: 75%;
+  background: #f5faff;
+  color: #22304a;
+  transition: border 0.21s;
+}
+
+.create-form input:focus,
+.join-form input:focus {
+  border: 2.2px solid #247cff;
+  background: #ebf3ff;
+}
+
+button, .view-btn {
+  background: linear-gradient(90deg, #247cff 15%, #1da1f2 80%);
+  border: none;
+  color: #fff;
+  padding: 11px 28px;
+  border-radius: 22px;
+  font-size: 1.08em;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 6px;
+  box-shadow: 0 3px 10px #247cff25;
+  transition: 
+    background 0.23s,
+    box-shadow 0.16s,
+    transform 0.14s;
+  outline: none;
+  letter-spacing: 0.08em;
+}
+
+button:hover, .view-btn:hover {
+  background: linear-gradient(90deg, #1da1f2 10%, #4f8cff 90%);
+  box-shadow: 0 8px 24px #247cff55;
+  transform: scale(1.045);
+}
+
+@media (max-width: 850px) {
+  .dashboard-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .dashboard-card {
+    width: 92vw;
+    margin-bottom: 24px;
+  }
+}
+body {
+  background: linear-gradient(135deg, #22304a 0%, #1a2c5b 100%);
+  font-family: 'Poppins', sans-serif;
+  color: #ececec;
+  margin: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.dashboard-flex {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 40px 36px;
+  width: 350px;
+  box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.26);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-16px) scale(1.07);
+  box-shadow: 0 20px 54px rgba(1, 128, 255, 0.5);
+  border-color: rgba(1, 128, 255, 0.7);
+}
+
+.dashboard-card h3 {
+  font-weight: 600;
+  margin-bottom: 22px;
+  font-size: 1.5em;
+  color: #bbdefb;
+}
+
+input, button {
+  font-size: 1.15em;
+  font-family: 'Poppins', sans-serif;
+}
+
+input {
+  width: 80%;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  text-align: center;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.4);
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+input:hover, input:focus {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+button {
+  background: #1b65f2;
+  box-shadow: 0 0 14px #2596f9af;
+  padding: 14px 30px;
+  border-radius: 14px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, #4a94f9, transparent);
+  transform: rotate(30deg);
+  transition: all 0.6s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+button:hover::after {
+  opacity: 0.8;
+  top: -40%;
+  left: -40%;
+  animation: shine 1s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+  }
+}
