@@ -6,12 +6,16 @@ if (!isset($_SESSION['user_id'])) {
 }
 $boardId = isset($_GET['id']) ? intval($_GET['id']) : 1;
 $boardName = "Drawing Board"; // Set dynamically if saved in DB with a name
+
+// Check if preview image exists for this board
+$previewPath = "previews/board_{$boardId}_preview.png";
+$previewExists = file_exists(__DIR__ . "/$previewPath");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?php echo htmlspecialchars($boardName); ?> | Board <?php echo htmlspecialchars($boardId); ?></title>
+  <title><?= htmlspecialchars($boardName) ?> | Board <?= htmlspecialchars($boardId) ?></title>
   <style>
     html, body {
       height: 100%;
@@ -165,12 +169,11 @@ $boardName = "Drawing Board"; // Set dynamically if saved in DB with a name
       #board { width: 95vw !important; height: 38vh !important;}
       .toolbar { flex-wrap:wrap; }
     }
-    
   </style>
 </head>
 <body>
   <div class="header-center">
-      <?php echo htmlspecialchars($boardName); ?> | Board ID: <?php echo htmlspecialchars($boardId); ?>
+     <?= htmlspecialchars($boardName) ?> | Board ID: <?= htmlspecialchars($boardId) ?>
   </div>
   <div class="main-flex">
     <!-- Canvas side -->
@@ -181,6 +184,8 @@ $boardName = "Drawing Board"; // Set dynamically if saved in DB with a name
         <button id="eraserBtn" title="Eraser">🧽</button>
         <button id="clearBtn" title="Clear Board">🗑️</button>
         <button id="exportBtn" title="Export Drawing">💾</button>
+        <button id="save-preview-btn" title="Save Preview" class="toolbar-btn">📝
+</button>
       </div>
       <canvas id="board" width="700" height="480"></canvas>
     </div>
@@ -196,7 +201,24 @@ $boardName = "Drawing Board"; // Set dynamically if saved in DB with a name
       </div>
     </div>
   </div>
-  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <?php if ($previewExists): ?>
+    <script>
+      // This script loads the preview image onto the canvas as soon as the DOM is ready.
+      document.addEventListener("DOMContentLoaded", function () {
+        var img = new Image();
+        img.onload = function () {
+          var canvas = document.getElementById('board');
+          if (!canvas) return;
+          var ctx = canvas.getContext('2d');
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+        img.src = "<?= $previewPath ?>";
+      });
+    </script>
+  <?php endif; ?>
   <script src="board.js"></script>
 </body>
 </html>
+

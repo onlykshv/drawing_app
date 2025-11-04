@@ -227,3 +227,19 @@ button:hover::after {
     transform: translateX(100%) rotate(30deg);
   }
 }
+.toolbar-btn {
+  background: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 8px 10px;
+  margin-right: 8px;
+  font-size: 1.5em;
+  box-shadow: 0 1px 4px rgba(30,60,90,0.10);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.18s;
+}
+.toolbar-btn:active {
+  background: #dde8f5;
+}

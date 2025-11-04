@@ -1,16 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>User Login</title>
+  <meta charset="UTF-8" />
+  <title>Login - Drawing Board</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #4a90e2, #357abd);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+    .container {
+      background: #1c2a48;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+      width: 320px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    input[type="email"], input[type="password"] {
+      width: 90%;
+      padding: 12px 10px;
+      margin: 12px 0 18px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.05em;
+      outline: none;
+    }
+    button {
+      background: #63a1ff;
+      border: none;
+      padding: 12px 20px;
+      color: #fff;
+      width: 95%;
+      font-size: 1.1em;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    button:hover {
+      background: #357abd;
+    }
+    .signup-link {
+      margin-top: 18px;
+      font-weight: 500;
+      font-size: 0.9em;
+    }
+    .signup-link a {
+      color: #99caff;
+      text-decoration: none;
+    }
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h2>Login</h2>
-  <form method="POST" action="login.php">
-    <label>Email: <input type="email" name="email" required></label><br>
-    <label>Password: <input type="password" name="password" required></label><br><br>
-    <input type="submit" value="Login">
-  </form>
-  <p>Don't have an account? <a href="register.html">Register here</a></p>
+  <div class="container">
+    <h2>Login</h2>
+    <form action="login.php" method="POST" id="login-form">
+      <input type="email" name="email" placeholder="Email" required autofocus />
+      <input type="password" name="password" placeholder="Password" required minlength="6" />
+      <button type="submit">Sign In</button>
+    </form>
+    <p class="signup-link">No account? <a href="register.html">Create one here</a>.</p>
+  </div>
 </body>
 </html>
